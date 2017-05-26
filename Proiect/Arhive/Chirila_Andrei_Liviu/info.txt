@@ -1,1 +1,4 @@
-
+**
+proiect_v2.1:
+**
+    Am optimizat proiectul asa incat sa fie cat mai dinamic facand abstractie de tipul de utilizator ceea ce a dus la reducerea numarului de fisiere si o mai usoara gestionare si modificare a acestora.
