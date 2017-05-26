@@ -1,23 +1,23 @@
--- gestionare conturi
+-- gestionare conturi /****** Liviu ******/
 * creare cont copil/parinte
 * creare legatura copil-parinte
 
--- teste
+-- teste /****** Bianca ******/
 * propune intrebare
 * creare teste
 
--- modificare profil copil (paginile home) 
+-- modificare profil copil (paginile home)  /****** Liviu ******/
 * butoane share
 * newsfeed
 * detalii cont
 
--- statistici
+-- statistici /****** Bianca ******/
 * top 10
 * cei mai noi inregistrati
 * cele mai relevante intrebari
 * top 10 copii cu acuratetea cea mai mare
 
--- gestionare copil + modificare profil parinte 
+-- gestionare copil + modificare profil parinte  /****** Floris ******/
 * butoane share
 * newsfeed
 * detalii cont
