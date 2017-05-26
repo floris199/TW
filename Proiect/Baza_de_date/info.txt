@@ -1,0 +1,1 @@
+Aici punem fisierele ce fac modificari in baza de date
