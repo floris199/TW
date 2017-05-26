@@ -1,0 +1,5 @@
+1. Incercati sa puneti orice linie pe care o introduceti sau modificati in proiectul asta direct pe git (edit la fisierul respectiv) 
+ca sa avem mereu o varianta completa a proiectului. (facem asta doar cand am terminat task-ul respectiv si suntem siguri ca funtioneaza
+bine);
+2. Tot odata urcati si arhive cu nume de gen proiect_v2.1 ca sa avem fisierele proaspete si neatinse din orice etapa a proiectului
+in caz de orice. (facem asta in folderul arhive/[numele tau])
