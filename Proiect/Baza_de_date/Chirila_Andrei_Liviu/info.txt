@@ -1,1 +1,3 @@
-
+**
+database.sql - script de populare a bazei de date (de la proiectul de bd)
+**
