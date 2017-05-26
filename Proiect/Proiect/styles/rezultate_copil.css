@@ -1,0 +1,28 @@
+#news {
+	color:red; 
+	border:2px solid red; 
+	position:absolute; 
+	top:0; 
+	margin: 50px 0 0 0;
+}
+
+.controlpanel{
+    width: 130%; height: 30px;
+	margin-left: -45px;
+	margin-top: -5px;
+    border-style: solid;
+    border-color: #81BEF7;
+    background-color: #81BEF7;
+}
+
+input[type=button] {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+	font-size:100%;
+	color:#000066;
+	margin-left:10px ;
+}

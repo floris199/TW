@@ -1,0 +1,191 @@
+.test_nelogat p{
+	white-space: nowrap;
+}
+
+.controlpanel{
+    width: 150%; height: 30px;
+	margin-left: -45px;
+	margin-top: -5px;
+	text-align: center-left;
+    border-style: solid;
+    border-color: #81BEF7;
+    background-color: #81BEF7;
+}
+
+input[type=button] {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+	font-size:100%;
+	color:#000066;
+}
+
+
+.main-div-test {
+	margin: 5px 0px 50px 0px;
+	float: left;
+	width: 100%;
+	height: auto;
+	
+	overflow: hidden;
+	word-wrap: break-word;
+	word-break: keep-all;
+	border-left: 6px solid #000066;
+    background-color: #ffb3b3;
+	padding: 3px;
+}
+
+.main-div-test h1{
+    font-family: Tempus Sans ITC;
+	color: #000066;
+	font-weight: bold;
+	
+	text-align: left;
+}
+
+.main-div-test h2{
+    display: block;
+	font-size: 105%;
+	font-weight: normal;
+}
+#news {
+	color:red; 
+	border:2px solid red; 
+	position:absolute; 
+	top:0; 
+	margin: 50px 0 0 0;
+}
+
+/*For mobile*/
+.main-div-test h1{
+    
+	
+	font-size: 100%;
+
+}
+input[type=button] {
+    margin-left:10px ;
+}
+.main-div-test h2{
+    
+	font-size: 80%;
+	
+}
+/* For tablets: */
+@media only screen and (min-width: 600px){
+	.banner-div{
+		width: 100%;
+	}
+	
+	.banner-div p{
+		padding:2% 10% 0 10%;
+		font-size: 120%;
+	}
+	
+	.menu-bar-div ul{
+		width: 100%;
+	}
+	.menu-bar-div li{
+    	margin: auto;
+		width: 25%;
+        display: block;
+        font-size: 80%;
+	}
+	.main-div {
+		width: 100%;
+        float:center;
+	}
+	.newsfeed-div {
+		display: block;
+		width: 100%;
+	}
+	.newsfeed-div marquee{
+		width: 80.5%;   
+	}
+	.childfield, .parentfield {
+		width: 48%;
+        margin: 0;
+		max-width: 300px;
+        float: left;
+        display: inline;
+	}
+    .childfield {
+    	margin-right:4%;
+		margin-bottom:10%
+    }
+	input[type=text],input[type=password] {
+		width:90%;
+	}
+	input[type=submit] {
+		width:50%;
+	}
+	.footer-div {
+		width:85%;
+		font-size: 80%;
+	}
+}
+
+
+@media only screen and (min-width: 768px) {
+
+	/* For desktop: */
+	.outer-div{
+		width: 1010px;	
+	}
+	.banner-div{
+		width: 90%;
+	}
+	.banner-div p{
+		padding:0 10% 0 10%;
+		font-size: 140%;
+		font-family: Chiller;
+	}
+	.menu-bar-div ul{
+		width: 70%;
+	}
+	.menu-bar-div li{
+		width: 24%;
+	}
+	.main-div {
+		width: 65%;
+	}
+	.newsfeed-div {
+		display: block;
+		width: 90%;
+	}
+	.newsfeed-div marquee{
+		width: 85%;
+	}
+	.login{
+		width: 35%;
+		display: block;
+		margin-top:1.5%;
+		float: right;
+	}
+	.childfield, .parentfield {
+		margin:0;
+		margin-top: 5%;
+		width: 85%;
+		float: right;
+		max-width: 300px;
+	}
+	input[type=text],input[type=password] {
+		width:90%;
+	}
+	input[type=submit] {
+		width:50%;
+	}
+	.footer-div {
+		width:95%;
+	}
+}
+@media only screen and (min-width: 2000px) {
+
+	/* For desktop 2k: */
+	.menu-bar-div li{
+		font-size: 30%;
+	}
+}

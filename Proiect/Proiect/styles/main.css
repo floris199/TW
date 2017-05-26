@@ -1,0 +1,396 @@
+body {
+	background-image : url("../images/background.jpg");
+	font-family: Century Schoolbook ;
+	font-size: 110%;
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+p {
+    display: block;
+    margin: 2px 0 0 0;
+}
+
+.outer-div {
+	margin: auto;
+    min-height: 800px;
+	overflow: hidden;
+	background-color: #e6f9ff; 
+	border: 5px solid #99ddff; 
+	border-style:ridge;
+	padding: 5px 30px 5px 30px; 
+	position:relative;
+}
+
+
+
+.title {
+	position: center;
+	font-family: Tempus Sans ITC;
+	font-size: 60px;
+	text-shadow:5px 5px 10px #e60000;
+	color: #000066;
+	text-align: center;
+	/*
+	border: 2px solid black;
+	*/
+}
+
+.banner-div {
+	background-image : url("../images/chenar2_png.png");
+	background-size: 100% 100%;
+	text-align: center;
+	background-repeat : no-repeat; 
+	height: 140px;
+	margin: 5px auto 5px auto;
+	
+    
+	opacity: 0.7;
+    filter: alpha(opacity=70);
+	overflow: hidden;
+}
+
+.banner-div p{
+	margin-top:10%;
+	color: white;
+	font-weight: normal;
+	text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px black;
+	
+}
+
+.menu-bar-div {
+	margin: 15px auto 25px auto;
+	overflow:hidden;
+}
+.menu-bar-div ul{
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+}
+.menu-bar-div li{
+    display: inline;
+	float: left;
+	background-color: #f1f1f1;
+	border: 2px solid #000066;
+	border-radius: 15px 50px;
+	text-align:center;
+	font-size: 90%;
+}
+.menu-bar-div li a {
+    display: block;
+    color: #000;
+    padding: 8px 20px;
+	text-decoration: none;
+}
+.menu-bar-div li a.active {
+    background-color: #ff9999;
+	border-radius: 15px 50px;
+    color: #000066;
+}
+.menu-bar-div li a:hover:not(.active) {
+    background-color: #555;
+	border-radius: 15px 50px;
+    color: white;
+}
+.main-div {
+	margin: 5px 0px 50px 0px;
+	float: left;
+	height: auto;
+	overflow: hidden;
+	word-wrap: break-word;
+	word-break: keep-all;
+	
+}
+.main-div img{
+	float: left;
+    border-style: double solid;
+	border-color: #000066;
+}
+.main-div h1{
+	font-family: Tempus Sans ITC;
+	color: #000066;
+	font-weight: bold;
+	font-size: 135%;
+	text-align: center;
+	font-weight: bold;
+}
+
+.main-div h2{
+    display: block;
+	font-size: 105%;
+	font-weight: normal;
+}
+
+.main-div h3{
+	font-family: Tempus Sans ITC;
+	color: #000066;
+	font-weight: bold;
+	font-size: 135%;
+	font-weight: bold;
+	
+}
+
+.main-div h4{
+	font-size: 105%;
+	font-weight: normal;
+}
+
+.newsfeed-div {
+	margin: 5px auto;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.newsfeed-div p{
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+.newsfeed-div marquee{
+	float: left;
+	font-size: 70%;
+}
+#news {
+	color:red; 
+	border:2px solid red; 
+	position:absolute; 
+	top:0; 
+	margin: 25px 0 0 0;
+}
+.childfield, .parentfield {
+	border: 3px solid #000066;
+    color: #000066;
+	float: right;
+	border-radius:10px;	
+}
+input[type=text],input[type=password] {
+	
+	margin:8px 0;
+	border:1px solid #ccc;
+	padding: 6px;
+	padding-left:5px;
+	position: center;
+}
+input[type=submit] {
+	
+	background-color:#3498DB;
+	color:#000066;
+	border:2px solid #3498DB;
+	padding:10px;
+	font-size:20px;
+	cursor:pointer;
+	border-radius:5px;
+	margin-bottom:15px;
+	margin-top:15px
+}
+
+
+.footer-div {
+	position:absolute;
+	bottom:0;
+	height:auto;   /* Height of the footer */
+	text-align:center;
+	border-top: 1px solid;
+	border-top-color: rgba(86, 125, 255,0.3);
+	padding: 5px 0 0 0;
+    margin-bottom:1%;
+    color:rgba(92, 138, 138,0.5);
+}
+
+/*** images ***/
+#img-handwriting{
+	width:6%; 
+	float:right;
+	height: auto;
+}
+
+#img-hello{
+	width:30%;
+	height: auto;
+}
+
+
+
+/*** responsivnes ***/
+
+/*For mobile*/
+.newsfeed-div{
+    display: none;
+}
+.title{
+	width: 100%;
+    font-size:250%;
+
+}
+.banner-div{
+	width: 100%;
+    text-align: center;
+}
+.banner-div p{
+	padding:0;
+	padding-top:10%;
+	font-family: Arial;
+	font-size: 100%;
+}
+
+.menu-bar-div ul{
+	width: 100%;
+}
+.menu-bar-div li{
+   	margin: auto;
+	width: 50%;
+	margin-top: 1%;
+    display: block;
+    font-size: 60%;
+}
+.main-div {
+	width: 100%;
+    float:center;
+
+}
+.login{
+    margin:0;
+    margin-bottom:10%;
+    width: 100%;
+    position: center;
+    
+}
+.childfield, .parentfield {
+	width: 100%;
+    margin: 0;
+    position: center;
+}
+.childfield {
+    margin-bottom:10%;
+}
+.parentfield {
+    margin-bottom:30%;
+}
+input[type=text],input[type=password] {
+	width:90%;
+}
+input[type=submit] {
+	width:50%;
+}
+.footer-div {
+	width:85%;
+    font-size: 70%;
+}
+
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+	.banner-div{
+		width: 100%;
+	}
+	
+	.banner-div p{
+		padding:2% 10% 0 10%;
+		font-size: 120%;
+	}
+	
+	.menu-bar-div ul{
+		width: 100%;
+	}
+	.menu-bar-div li{
+    	margin: auto;
+		width: 25%;
+        display: block;
+        font-size: 80%;
+	}
+	.main-div {
+		width: 100%;
+        float:center;
+	}
+	.newsfeed-div {
+		display: block;
+		width: 100%;
+	}
+	.newsfeed-div marquee{
+		width: 80.5%;   
+	}
+	.childfield, .parentfield {
+		width: 48%;
+        margin: 0;
+		max-width: 300px;
+        float: left;
+        display: inline;
+	}
+    .childfield {
+    	margin-right:4%;
+		margin-bottom:10%
+    }
+	input[type=text],input[type=password] {
+		width:90%;
+	}
+	input[type=submit] {
+		width:50%;
+	}
+	.footer-div {
+		width:85%;
+		font-size: 80%;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+
+	/* For desktop: */
+	.outer-div{
+		width: 1010px;	
+	}
+	.banner-div{
+		width: 90%;
+	}
+	.banner-div p{
+		padding:0 10% 0 10%;
+		font-size: 140%;
+		font-family: Chiller;
+	}
+	.menu-bar-div ul{
+		width: 70%;
+	}
+	.menu-bar-div li{
+		width: 24%;
+	}
+	.main-div {
+		width: 65%;
+	}
+	.newsfeed-div {
+		display: block;
+		width: 90%;
+	}
+	.newsfeed-div marquee{
+		width: 85%;
+	}
+	.login{
+		width: 35%;
+		display: block;
+		margin-top:1.5%;
+		float: right;
+	}
+	.childfield, .parentfield {
+		margin:0;
+		margin-top: 5%;
+		width: 85%;
+		float: right;
+		max-width: 300px;
+	}
+	input[type=text],input[type=password] {
+		width:90%;
+	}
+	input[type=submit] {
+		width:50%;
+	}
+	.footer-div {
+		width:95%;
+	}
+}
+@media only screen and (min-width: 2000px) {
+
+	/* For desktop 2k: */
+	.menu-bar-div li{
+		font-size: 30%;
+	}
+}
