@@ -79,11 +79,13 @@ p {
 	text-align:center;
 	font-size: 90%;
 }
+
 .menu-bar-div li a {
     display: block;
     color: #000;
     padding: 8px 20px;
-	text-decoration: none;
+    text-decoration: none;
+    font-weight: bold;
 }
 .menu-bar-div li a.active {
     background-color: #ff9999;
@@ -165,6 +167,9 @@ p {
 	float: right;
 	border-radius:10px;	
 }
+
+.form_row p{ font-size: 70%;}
+
 input[type=text],input[type=password] {
 	
 	margin:8px 0;
