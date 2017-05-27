@@ -1,3 +1,27 @@
 **
 database.sql - script de populare a bazei de date (de la proiectul de bd)
 **
+
+** creare_tabele_v2.sql **
+    Am adaugat un camp in tabela copii (cheie varchar2(20) unique not null) necesar pentru identificarea unica a copilului cand creezi legatura parinte copil din interfata parintelui.
+
+** populare_tabela_copii_v2.sql **
+    Am creat o secventa si un trigger pentru id copil pentru a face insertul automat a id-ului.
+    Am modificat blocul anonim de populare a tabelei copii in felul urmator:
+        - am generat o cheie unica varchar2(20) formata din litere ale alfabetului englez;
+        - am adaugat cheia in insert;
+        - am sters id-ul din insert;
+
+** populare_tabela_tutore_v2.sql **
+    Am creat o secventa si un trigger pentru id tutore pentru a face insertul automat a id-ului.
+    Am modificat blocul anonim de populare a tabelei copii in felul urmator:
+        - am sters generarea manuala a id-ului;
+        - am sters id-ul din insert;
+        
+** creare_functii_user_v2.sql **
+    * functia create_child_account *
+        - Am adaugat codul de generare a cheii;
+        - Am adaugat cheia in insert;
+    * functia creare_parent_account *
+        - Am sters parametrul ce reprezenta numele copilului (legatura va fi stabilita ulterior de catre parinte)
+        - Am sters id-ul din insert si tot ce tinea de acesta
