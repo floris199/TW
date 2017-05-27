@@ -13,12 +13,7 @@
 	
 	<body>
 	<div class="outer-div">
-		<div class="controlpanel">
-		<form>
-			<input type="button" value="Log out" onclick="window.location.href='/index.html'" />
-			<input type="button" value="Change password" onclick="window.location.href='/index.html'" />
-		</form>
-		</div>
+		<?php include ("html/user_control_panel.html"); ?>
 		<div class="newsfeed-div" >
 			<img id="img-handwriting" src="images/handwriting.png" alt="handwriting image" >
 			<br>
