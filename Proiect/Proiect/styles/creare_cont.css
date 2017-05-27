@@ -1,0 +1,45 @@
+.main-div {
+	margin: 5px 0px 50px 0px;
+    padding-left: 20%;
+	float: center;
+	height: auto;
+	overflow: hidden;
+	word-wrap: break-word;
+	word-break: keep-all;
+    width: 100%;
+}
+
+.login{
+    display: none;
+}
+
+#center{
+    float: center;
+    width: 90%;
+}
+
+input[type=text],input[type=password] {
+	width:90%;
+}
+
+#wrong{
+    border-color:red;
+    background-color:#ffd3d3;
+}
+
+input[type=submit] {
+	width:40%;
+}
+/*** responsivnes ***/
+    /*For mobile*/
+
+@media only screen and (min-width: 600px) {
+    #center{
+        float: center;
+        width: 70%;
+        padding-left:12%;
+    }
+}
+@media only screen and (min-width: 768px) {
+	/* For desktop: */
+}
