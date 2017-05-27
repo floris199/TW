@@ -25,7 +25,7 @@
 		<div class="title">
 			<p><strong>
 				Just for Kids Game
-			</p>
+			</p></strong>
 		</div>
 		
 		<div class="banner-div">
@@ -91,8 +91,14 @@
                 <div class="form_row">
                 <label class="contact"><strong>Parola:</strong></label>
                 <input type="password" name="pass" class="contact_input" />
-                </div>                     
-
+                </div>
+					
+		<div class="form_row">
+                    <?php
+                        $parent=1;
+                        echo '<p>Apasa <a href="creare_cont.php?parent='.$parent.'">aici</a> pentru a te inregistra ...</p>';
+                    ?>
+                </div>              
                 
 
                 <div class="form_row">
@@ -107,7 +113,7 @@
 				<fieldset class="parentfield">	
 				<legend>Log in parinti</legend>				
                 <div class="form_row">
-                <label class="contact"><strong>Nume cont:</strong></label>
+                <label class="contact"><strong>Email:</strong></label>
                 <input type="text" name="user" class="contact_input" />
                 </div>  
 
@@ -117,7 +123,12 @@
                 <input type="password" name="pass" class="contact_input" />
                 </div>                     
 
-                
+                <div class="form_row">
+                    <?php
+                        $parent=2;
+                        echo '<p>Apasa <a href="creare_cont.php?parent='.$parent.'">aici</a> pentru a te inregistra ...</p>';
+                    ?>
+                </div>   
 
                 <div class="form_row">
                 <input type="submit" class="register" value="login" />
