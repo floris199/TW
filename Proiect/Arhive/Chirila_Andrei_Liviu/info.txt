@@ -1,7 +1,33 @@
-**
-proiect_v2.1:
-**
+** proiect_v2.1 **
     Am optimizat proiectul asa incat sa fie cat mai dinamic facand abstractie de tipul de utilizator ceea ce a dus la 
     reducerea numarului de fisiere si o mai usoara gestionare si modificare a acestora.
     +
     Crearea fisierelor php de login (conexiunea cu baza de date)
+
+** proiect_v2.2 **
+    modificari:
+    *index.php*
+        + </strong> (am inchis labelul strong de la titlu pentru ca nu era inchis si facea tot scrisul bold)
+        la formularele de login:
+        + "apasa aici pentru a te inregistra
+        / am inlocuit Nume cont cu Email (in login parinte)
+
+    *main.css*
+        + .form_row p{ font-size: 70%;}
+        + .menu-bar-div li a { font-weight: bold; }
+    
+    *test_not_loged.html*
+        / am inlocuit index.html cu index.php
+    
+    *profil_parinte.php*
+        - div-ul control_panel;
+        + <?php include ("html/user_control_panel.html"); ?> 
+     
+    am creat urmatoarele fisiere:
+        1.creare_cont.php;
+        2.styles/creare_cont.css;
+        3.php/formular_creare_cont_copil.php;
+        4.php/creare_cont_copil.php;
+        5.php/formular_creare_cont_parinte.php;
+        6.php/creare_cont_parinte.php;
+	
