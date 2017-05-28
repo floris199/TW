@@ -1,0 +1,36 @@
+
+Am luat scriptul de la Liviu pentru a-l completa cu modificarile mele si cu ce a introdus Floris in tabela teste:
+
+
+** creare_tabele.sql:	
+
+- am introdus in tabela intrebari campurile pentru cele 3 variante de raspuns : varianta_raspuns_1 varchar2(100), respectiv si celelalte
+- am schimbat in intrebari dimensiunea raspunsului:   raspuns varchar2(100),
+- am schimbat in tabela materii dimensiunea dificultatii: dificultate varchar2(30)
+- am schimbat in tabela raspunsuri dimensiunea raspunsului: raspuns varchar2(100),
+- am introdus in teste: materie_id number(32) (pentru a sti din ce categorie face parte un test), FOREIGN KEY (materie_id) REFERENCES materii(id) on delete cascade,
+- iar Floris a introdus in teste: cluster_id NUMBER(32), locked NUMBER(32)
+	
+
+** populare_tabele.sql:
+
+- am modificat tot scriptul de populare de la BD, am introdus date reale 
+- avem 50 de copii
+- 50 de tutori, toti urmaresc (adica au legatura) cate un copil, iar doar 2 dintre cei 50 urmaresc 2 copii
+- deci avem 52 de legaturi
+- avem 5 materii, fiecare avand cate 3 grade de dificultate
+
+matematica 1,2,3	->	prescolari,scolari mici,elevi de gimnaziu
+geografie 4,5,6	->	prescolari,scolari mici,elevi de gimnaziu
+literatura 7,8,9	->	prescolari,scolari mici,elevi de gimnaziu
+istorie 10,11,12	->	prescolari,scolari mici,elevi de gimnaziu
+muzica 13,14,15	->	prescolari,scolari mici,elevi de gimnaziu
+- avem intrebari pentru fiecare categorie in parte
+- id-urile testelor vor fi in functie de disciplina si gradul de dificultate
+- am format in total 45 de teste: 3 pentru matematica-prescolari, 3 pentru matematica-scolari mici, etc..
+- testele vor fi formate din 5 intrebari diferite intre ele  (procedure add_intrebari_test(materie_id))
+- in tabela raspunsuri: fiecare copil a raspuns la toate intrebarile existente in baza de date 
+
+
+** creare_functii_user_v3:
+	- am adaugat noi functii necesare pentru pagina statistici si teste
