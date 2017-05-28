@@ -14,7 +14,6 @@
 	<body>
 	<div class="outer-div">
 		<?php include ("html/user_control_panel.html"); ?>
-		</div>
 		<div class="newsfeed-div" >
 			<img id="img-handwriting" src="images/handwriting.png" alt="handwriting image" >
 			<br>
