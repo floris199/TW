@@ -1,8 +1,17 @@
-** proiect_v2.1 **
-    Am optimizat proiectul asa incat sa fie cat mai dinamic facand abstractie de tipul de utilizator ceea ce a dus la 
-    reducerea numarului de fisiere si o mai usoara gestionare si modificare a acestora.
-    +
-    Crearea fisierelor php de login (conexiunea cu baza de date)
+** proiect_v2.3 **
+    modificari:
+    	*profil_copil.php*
+		- user control panel div
+		+ include user_control_panel.php
+		/ modificare in main div
+		
+	*index.php*/*login_child*/*login_parent*
+		+ afisare erori login
+		
+     am creat urmatoarele fisiere:
+     	1.php/changepass.php
+	2.styles/profil_copil.css
+	
 
 ** proiect_v2.2 **
     modificari:
@@ -30,4 +39,9 @@
         4.php/creare_cont_copil.php;
         5.php/formular_creare_cont_parinte.php;
         6.php/creare_cont_parinte.php;
-	
+
+** proiect_v2.1 **
+    Am optimizat proiectul asa incat sa fie cat mai dinamic facand abstractie de tipul de utilizator ceea ce a dus la 
+    reducerea numarului de fisiere si o mai usoara gestionare si modificare a acestora.
+    +
+    Crearea fisierelor php de login (conexiunea cu baza de date)
