@@ -81,9 +81,15 @@ if (!$conn)  {
 			}
 			if(oci_execute($stmt2))
 			{
-				$succes=1;
-				header("location: ../profil_copil.php?succes=$succes");
-				exit;
+				if($_COOKIE['user_type']=="parent"){
+					$succes=1;
+					header("location: ../profil_parinte.php?succes=$succes");
+					exit;
+				}else{
+					$succes=1;
+					header("location: ../profil_copil.php?succes=$succes");
+					exit;
+				}
 			}else{
 				$e = oci_error($stmt2);  // For oci_execute errors pass the statement handle
 				trigger_error(htmlentities($e['message']), E_USER_ERROR);
