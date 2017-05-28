@@ -82,28 +82,41 @@
 				
 				<fieldset class="childfield">	
 				<legend>Log in copii</legend>				
+       
                 <div class="form_row">
-                <label class="contact"><strong>Nume cont:</strong></label>
-                <input type="text" name="user" class="contact_input" />
+                    <label class="contact"><strong>Nume cont:</strong></label>
+                    <input type="text" name="user" class="contact_input" />
                 </div>  
 
 
                 <div class="form_row">
-                <label class="contact"><strong>Parola:</strong></label>
-                <input type="password" name="pass" class="contact_input" />
-                </div>
-					
-		<div class="form_row">
+                    <label class="contact"><strong>Parola:</strong></label>
+                    <input type="password" name="pass" class="contact_input" />
+                </div>                     
+ 
+                <div class="form_row">
                     <?php
-                        $parent=1;
-                        echo '<p>Apasa <a href="creare_cont.php?parent='.$parent.'">aici</a> pentru a te inregistra ...</p>';
+						if (isset($_GET['error'])){
+							$error=$_GET['error'];
+							if(strcmp($error,'1a')==0){
+								echo '<p style="color: red;">* Username gresit</p>';
+							}elseif(strcmp($error,'2a')==0){
+								echo '<p style="color: red;">** Parola gresita</p>';
+							}else{
+								$parent=1;
+								echo '<p>Apasa <a href="creare_cont.php?parent='.$parent.'">aici</a> pentru a te inregistra ...</p>';
+							}
+						}else{
+							$parent=1;
+							echo '<p>Apasa <a href="creare_cont.php?parent='.$parent.'">aici</a> pentru a te inregistra ...</p>';
+						}
                     ?>
                 </div>              
                 
-
                 <div class="form_row">
-                <input type="submit" class="register" value="login"  />
+                    <input type="submit" class="register" value="login"  />
                 </div> 
+                
 				</fieldset>
 			</form>
 		
@@ -112,30 +125,44 @@
 				
 				<fieldset class="parentfield">	
 				<legend>Log in parinti</legend>				
+                
                 <div class="form_row">
-                <label class="contact"><strong>Email:</strong></label>
-                <input type="text" name="user" class="contact_input" />
+                    <label class="contact"><strong>Email:</strong></label>
+                    <input type="text" name="user" class="contact_input" />
                 </div>  
 
-
                 <div class="form_row">
-                <label class="contact"><strong>Parola:</strong></label>
-                <input type="password" name="pass" class="contact_input" />
+                    <label class="contact"><strong>Parola:</strong></label>
+                    <input type="password" name="pass" class="contact_input" />
                 </div>                     
-
+                
                 <div class="form_row">
                     <?php
-                        $parent=2;
-                        echo '<p>Apasa <a href="creare_cont.php?parent='.$parent.'">aici</a> pentru a te inregistra ...</p>';
+						if (isset($_GET['error'])){
+							$error=$_GET['error'];
+							if(strcmp($error,'1b')==0){
+								echo '<p style="color: red;">* Email gresit</p>';
+							}elseif(strcmp($error,'2b')==0){
+								echo '<p style="color: red;">** Parola gresita</p>';
+							}else{
+								$parent=2;
+								echo '<p>Apasa <a href="creare_cont.php?parent='.$parent.'">aici</a> pentru a te inregistra ...</p>';
+							}
+						}else{
+							$parent=2;
+							echo '<p>Apasa <a href="creare_cont.php?parent='.$parent.'">aici</a> pentru a te inregistra ...</p>';
+						}
                     ?>
                 </div>   
 
                 <div class="form_row">
-                <input type="submit" class="register" value="login" />
+                    <input type="submit" class="register" value="login" />
                 </div> 
-				</fieldset>
+				
+                </fieldset>
 			</form>
 		</div>
+	
 		<div class="footer-div">
 		   <p>Autori: Andrei-Liviu Chirila, Ababei Bianca-Georgiana, Corduneanu Florian-Mihai</p>
 		</div>
