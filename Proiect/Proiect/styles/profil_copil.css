@@ -1,0 +1,93 @@
+
+.main-div{
+	width: 100%;
+}
+.content{
+	float: right;
+	width: 80%;
+	padding:1px 16px;
+	margin: 0 0 50px 0;
+}
+
+.left-menu{
+	margin: 2% 0 0 0;
+	float: left;
+	width: 20%;
+	height: 100%;
+}
+
+.left-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    overflow: auto;
+	border: 2px solid #000066;
+	border-radius: 15px 50px;
+}
+
+.left-menu li a {
+    display: block;
+	border-bottom:1px solid #bcbcbc;
+    color: #000;
+	font-weight: bold;
+    padding: 8px 16px;
+    text-decoration: none;
+	text-align: center;
+}
+#last{
+	border: none;
+}
+
+.left-menu li a.active {
+    background-color: #ff9999;
+    color:#000066;
+}
+
+.left-menu li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+.controlpanel{
+    width: 130%; height: 30px;
+	margin-left: -45px;
+	margin-top: -5px;
+    border-style: solid;
+    border-color: #81BEF7;
+    background-color: #81BEF7;
+}
+
+input[type=button] {
+    background-color: Transparent;
+    border: none;
+    cursor:pointer;
+	font-size:100%;
+	color:#000066;
+	margin-left:10px ;
+}
+
+#news {
+	color:red; 
+	border:2px solid red; 
+	position:absolute; 
+	top:0; 
+	margin: 50px 0 0 0;
+}
+
+
+
+/*For mobile*/
+
+
+@media only screen and (min-width: 600px){
+	/* For tablets: */
+}
+
+
+@media only screen and (min-width: 768px) {
+
+	/* For desktop: */
+	
+}
