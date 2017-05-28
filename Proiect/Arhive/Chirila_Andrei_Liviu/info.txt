@@ -11,6 +11,7 @@
      am creat urmatoarele fisiere:
      	1.php/changepass.php
 	2.styles/profil_copil.css
+	3.schimbare_parola.css
 	
 
 ** proiect_v2.2 **
