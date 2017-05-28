@@ -40,12 +40,17 @@ if(!$login_stmt)
 		}
 		else
 		{
-			echo 'Parola gresita';
+			$error='2b';
+			header("location: ../index.php?error=$error");
 		}
 	}else{
+		/*
 		print 'Username gresit:	';
 		$e = oci_error($login_stmt);  // For oci_execute errors pass the statement handle
 		print htmlentities($e['message']);
+		*/
+		$error='1b';
+		header("location: ../index.php?error=$error");
 	}
 }
 
