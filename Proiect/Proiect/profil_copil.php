@@ -7,17 +7,13 @@
 	<meta charset="utf-8"><!-- reprezinta formatul in latina 2 -->
 	<meta name="JFK" content="Teste de cultura generala pentru copii.">
 	<link rel="stylesheet" href="styles/main.css">
-	<link rel="stylesheet" href="styles/kid_profile.css">
+	<link rel="stylesheet" href="styles/profil_copil.css">
 	
 	</head>
 	
 	<body>
 	<div class="outer-div">
-		<div class="controlpanel">
-		<form>
-			<input type="button" value="Log out" onclick="window.location.href='php/logout.php'") />
-			<input type="button" value="Change password" onclick="window.location.href='/index.html'" />
-		</form>
+		<?php include ("html/user_control_panel.html"); ?>
 		</div>
 		<div class="newsfeed-div" >
 			<img id="img-handwriting" src="images/handwriting.png" alt="handwriting image" >
@@ -32,7 +28,7 @@
 		<div class="title">
 			<p><strong>
 				Just for Kids Game
-			</p>
+			</p></strong>
 		</div>
 		
 		<div class="banner-div">
@@ -49,22 +45,51 @@
 			  <li><a href="despre_noi.php" >Despre noi</a></li>
 			</ul>
 	    </div>
-		<div class="formular" align= "center">
-		<h3 >
-				<br><br><br>Ce domeniu crezi ca ti-ar place? 
-				<form action="/test.html" method="get">
-				  <input type="checkbox" name="matematica" value="Bike"> Matematica<br>
-				  <input type="checkbox" name="geografie" value="Car" checked>Geografie<br>
-				  <input type="checkbox" name="literatura" value="Car" checked>Literatura<br>
-				  <input type="checkbox" name="istorie" value="Car" checked>Istorie<br>
-				  <input type="checkbox" name="muzica" value="Car" checked>Muzica<br>
-				  <br>Alege si dificultatea!<br>
-				  <input type="checkbox" name="greu" value="Bike"> Greu<br>
-				  <input type="checkbox" name="usor" value="Car" checked>Usor<br>
-				  <input type="image" src="images/start.png" alt="start" />
+		<div class="main-div">
+			<div class="left-menu">
+				<ul>
+				  <li><a class="active" href="#home">Detalii cont</a></li>
+				  <li><a href="#news">Vezi cine te urmareste</a></li>
+				  <li><a id="last" href="#news">Alt buton</a></li>
 				  
-				</form>
-		</h3>
+				</ul>
+			</div>
+			<div class="content">
+				<?php
+				$dbuser = "proiect";
+				$dbpass = "proiect";
+				$dbname = "localhost/xe";
+				$conn = oci_connect($dbuser, $dbpass, $dbname);
+				if (!$conn)  {
+					$e = oci_error();   // For oci_connect errors do not pass a handle
+					trigger_error(htmlentities($e['message']), E_USER_ERROR);
+					exit; 
+				}else{
+					$username = $_COOKIE["login"];
+					$stmt = oci_parse($conn, "BEGIN
+						Select nume into :name from copii where nume_cont='".$username['user']."';
+					END;");
+					oci_bind_by_name($stmt,":name",$nume,100);
+					if(!$stmt)
+					{
+						$e = oci_error($conn);  // For oci_parse errors pass the connection handle
+						trigger_error(htmlentities($e['message']), E_USER_ERROR);
+						exit; 
+					}
+					if(oci_execute($stmt))
+					{
+						echo "<h1>Bine ai venit, " .$nume."!</h1>";
+					}else{
+						$e = oci_error($stmt);  // For oci_execute errors pass the statement handle
+						trigger_error(htmlentities($e['message']), E_USER_ERROR);
+						exit; 
+					}
+				}
+            ?>
+			 
+			</div>
+            
+
 		</div>
 		
 
