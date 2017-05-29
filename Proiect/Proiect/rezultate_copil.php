@@ -7,7 +7,9 @@
 	<meta charset="utf-8"><!-- reprezinta formatul in latina 2 -->
 	<meta name="JFK" content="Teste de cultura generala pentru copii.">
 	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="styles/tabel_rezultate.css">
 	<link rel="stylesheet" href="styles/rezultate_copil.css">
+
 	<?php
     if (!isset($_COOKIE['login'])) {
 		print '<link rel="stylesheet" href="styles/news.css">';
@@ -54,7 +56,112 @@
 	    </div>
 	
 		<div class="main-div-test">
+						  <?php
+				if (!isset($_COOKIE['login'])) {
+					print 'login cookie is not set';
+					print '<link rel="stylesheet" href="styles/news.css">';
+				}
+				else{
+					if (!isset($_COOKIE['user_type'])) {
+						print 'User type is not set';
+					}
+					else{$dbuser = "proiect";
+						 $dbpass = "proiect";
+						 $dbname = "localhost/xe";
+						 $db = oci_connect($dbuser, $dbpass, $dbname);
 
+
+						 if (!$db)  {
+							$e = oci_error();   // For oci_connect errors do not pass a handle
+							trigger_error(htmlentities($e['message']), E_USER_ERROR);
+							exit; 
+									}
+						$array=$_COOKIE["login"];
+						$username=$array['user'];
+
+					
+						$stmt = oci_parse($db, "declare
+													v_rand number(32);
+													v_id number(32);
+												begin
+													select id into v_id from tutori where email like '".$username."';
+													select count(*) into :v_rand from tutori t join legaturi l on l.tutore_id=t.id join copii c on c.id=l.copil_id where t.id = v_id;
+			 
+												end;");
+						oci_bind_by_name($stmt,"v_rand",$numar_copii,30);
+						oci_execute($stmt);
+						echo "<table border='1' align = 'center'>\n";
+					echo "<tr>\n";
+
+					
+					echo "<td>".'<h3>Nume</h3>'."</td>";
+					echo "<td>".'<h3 align = "center">Nr. de rezolvari corecte</h3>'."</td>";
+					echo "<td>".'<h3 align = "center">Nr. de rezolvari gresite</h3>'."</td>";
+			  
+					echo "</tr>\n";
+						
+				for ($i = 1; $i <= $numar_copii; $i++) {
+							$number_stmt = oci_parse($db, "declare v_row number(32) := '".$i."'; 
+														begin
+														   user_package.afisare_date_copii(:v_id,v_row,'".$username."',:v_nume_copil,:raspunsuri_corecte,:raspunsuri_gresite);
+												end;");
+							oci_bind_by_name($number_stmt,":v_nume_copil",$name,50);
+							oci_bind_by_name($number_stmt,":raspunsuri_corecte",$r_c,30);
+							oci_bind_by_name($number_stmt,":raspunsuri_gresite",$r_g,30);
+							oci_bind_by_name($number_stmt,":v_id",$id,30);
+					if(!$number_stmt)
+			{
+						$e = oci_error($db);  // For oci_parse errors pass the connection handle
+						trigger_error(htmlentities($e['message']), E_USER_ERROR);
+						print "\n<pre>\n";
+						print htmlentities($e['sqltext']);
+						printf("\n%".($e['offset']+1)."s", "^");
+						print  "\n</pre>\n";
+						exit; 
+			}
+					oci_execute($number_stmt);
+					echo "<tr>\n";
+
+
+						echo "<td>";
+						echo $name;
+						echo "</td>";
+						echo '<td align = "center">';
+						echo $r_c;
+						echo "</td>";
+						echo '<td align = "center">';
+						echo $r_g;
+						echo "</td>";
+						
+
+
+					echo '</tr>';
+				
+				
+						}
+			
+			echo '</table>';
+			
+				}
+			}
+					
+				
+			?>
+			
+		<h3>Daca doriti sa sa vizualizati intrebarile la care copilul dumneavoastra a raspuns, va rugam sa completati formularul de mai jos:</h3>
+		<form method="post" action="intrebari.php">
+		
+		<?php
+			$i = 1;
+			echo '<select name = "pick" >';
+			while(isset($_COOKIE['nume_copil'.$i.''])) {
+					echo '<option value="'.$_COOKIE['nume_copil'.$i.''].'">'.$_COOKIE['nume_copil'.$i.''].'</option>';
+					$i++;
+			} 
+			echo '</select>';
+		?>
+		<input type="submit" value="Submit" style = "width: 100px; height:10 px; font-size:15px;" />
+		</form>
 		</div>
 		
 		<div class="footer-div">

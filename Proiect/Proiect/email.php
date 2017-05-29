@@ -12,11 +12,30 @@ if (!$db)  {
     exit; 
 }
 
-$username=$_POST['nume_copil'];
+$username=$_POST['pick'];
 $email=$_POST['email'];
+if($email=='' or $username==''){
+    if($username==''){
+        setcookie("camp_nume", 1, time()+2, '/');
+		
+    }
+    if($email==''){
+        setcookie("camp_email", 2, time()+2, '/');
+		
+}}
+if (strpos($email, '@') == false) {
+		setcookie("wrong_email", $email, time()+2, '/');
+		
+  }
 
-$stmt = oci_parse($db, "begin
-						  user_package.email_newsletter('".$nume_copil."',:raspunsuri_corecte,:raspunsuri_gresite);
+else {
+
+$stmt = oci_parse($db, "declare
+							raspunsuri_corecte number(32);
+							raspunsuri_gresite number(32);
+
+						begin
+						  user_package.email_newsletter('".$username."',:raspunsuri_corecte,:raspunsuri_gresite);
 						end;");
 oci_bind_by_name($stmt,"raspunsuri_corecte",$r_c,30);
 	oci_bind_by_name($stmt,":raspunsuri_gresite",$r_g,30);
@@ -33,7 +52,7 @@ oci_bind_by_name($stmt,"raspunsuri_corecte",$r_c,30);
 	oci_execute($stmt);
 
 
-require_once('C:/Apache24/htdocs/Proiect/public_html/PHPMailer_5.2.0/class.phpmailer.php');
+require_once('Lib/PHPMailer_5.2.0/class.phpmailer.php');
 $mail = new PHPMailer(); // create a new object
 $mail->IsSMTP(); // enable SMTP
 $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
@@ -50,10 +69,9 @@ $mail->Body = "hello copilul dumneavoastra are {$r_c} raspunsuri corecte si {$r_
 $mail->AddAddress($email);
 $mail->Send();
 
+}
 
-header("Location:profil_parinte.php");
-	
-	
+
+	header("Location: profil_parinte.php");
  
-
 ?>

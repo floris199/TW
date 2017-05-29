@@ -7,13 +7,17 @@
 	<meta charset="utf-8"><!-- reprezinta formatul in latina 2 -->
 	<meta name="JFK" content="Teste de cultura generala pentru copii.">
 	<link rel="stylesheet" href="styles/main.css">
-	<link rel="stylesheet" href="styles/kid_profile.css">
+	<link rel="stylesheet" href="styles/parinte.css">
 	
 	</head>
 	
 	<body>
 	<div class="outer-div">
-		<?php include ("html/user_control_panel.html"); ?>
+		<?php //includes user control panel if is logged
+			if (isset($_COOKIE['login'])) {
+				include ("html/user_control_panel.html");
+			}
+		?>
 		<div class="newsfeed-div" >
 			<img id="img-handwriting" src="images/handwriting.png" alt="handwriting image" >
 			<br>
@@ -47,27 +51,49 @@
 		
 		<div class="main-div-parinte">
 			
-			<img src="images/parinte.png" alt="parinte" style="width:35%; float:right;">
+			<img src="images/parinte.png" alt="parinte" style="width:35%; float:right;"> 
 		    <h1>
 				 Bine ati venit! <br>
 			</h1>
 			
-			<h1>
-				 
-			</h1>
+
+			<h3>    Daca doriti ca datele copilului dumneavoastra sa va fie transmise prin e-mail, va rugam sa completati formularul de mai jos!</h3>
 			
-			
-			<h2 align="left">
-				Inainte de toate, selectati numele copilului caruia doriti sa ii vedeti rezultatele: <br>
-				<select>
-					<option value="1">Ababei Bianca</option>
-					<option value="2">Corduneanu Floris</option>
-					<option value="3">Chirila Liviu</option>
-					<option value="4">Marcel Pavel</option>
-				</select>
-			</h2>
-		
-			<!-- @@@@@@@@@@@@@@ Liviu @@@@@@@@@@@@@@@ -->
+		        <form method="post" action="email.php">
+				Numele copilului:<br>
+                <?php
+					
+                    	$i = 1;
+						echo '<select name = "pick" >';
+						while(isset($_COOKIE['nume_copil'.$i.''])) {
+							echo '<option value="'.$_COOKIE['nume_copil'.$i.''].'">'.$_COOKIE['nume_copil'.$i.''].'</option>';
+							$i++;
+						} 
+					echo '</select><br>';
+                
+					echo 'Email:<br>';
+                
+                    if (isset($_COOKIE['camp_email'])){
+                        echo '<input type="text" name="email" placeholder=" example@mail.com" style="width: 200px"/><br>';
+                    }else{
+                        echo '<input type="text" name="email" placeholder=" example@mail.com" style="width: 200px" /><br>';
+                    }
+				  if (isset($_COOKIE['camp_email'])){
+                        echo '<p style="color: red"> * Toate campurile sunt obligatorii<p><br>';
+                    }
+				  else{
+				  if(isset($_COOKIE['wrong_email'])){
+
+							echo '<p style="color: red"> ** Emailul este invalid<p><br>';
+						}
+				  }
+                    
+                ?>
+				  
+				  <input type="submit" value="Submit" style = "width: 100px; height:10 px; font-size:15px;" />
+				</form>
+				
+				<!-- @@@@@@@@@@@@@@ ATAT AM ADAUGAT. PUPICI @@@@@@@@@@@@@@@ -->
                 <?php
 					echo '<a href="'.$_SERVER['PHP_SELF'].'?adauga_copil">Adauga un nou copil<a/>';
                     if (isset($_GET['adauga_copil'])){
