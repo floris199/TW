@@ -73,10 +73,15 @@
 						Select id into v_id from copii where nume_cont='".$username['user']."';
 						Select user_package.nr_raspunsuri_corecte(v_id) into :raspunsuri_corecte from dual;
 						Select count(*) into :raspunsuri from raspunsuri where copil_id=v_id;
-						
+						select loc into :loc from (
+							select rownum as loc,id, nume from copii order by user_package.nr_raspunsuri_corecte(id) desc
+							) where id=v_id;
+						select count(*) into :nr_copii from copii;
 					END;");
 					oci_bind_by_name($stmt,":raspunsuri_corecte",$raspunsuri_corecte);
 					oci_bind_by_name($stmt,":raspunsuri",$raspunsuri);
+					oci_bind_by_name($stmt,":loc",$loc);
+					oci_bind_by_name($stmt,":nr_copii",$nr_copii);
 					if(!$stmt)
 					{
 						$e = oci_error($conn);  // For oci_parse errors pass the connection handle
@@ -85,13 +90,14 @@
 					}
 					if(oci_execute($stmt))
 					{
-						echo "Numarul de raspunsuri corecte: ".$raspunsuri_corecte."<br>";
-						echo "Numarul total de raspunsuri : ".$raspunsuri."<br>";
+						echo "Numarul de raspunsuri corecte: <label style='color: red;'>".$raspunsuri_corecte."</label><br>";
+						echo "Numarul total de raspunsuri : <label style='color: red;'>".$raspunsuri."</label><br>";
 						if($raspunsuri==0){
-							echo "Procentaj raspunsuri corecte : 0%";
+							echo "Procentaj raspunsuri corecte : <label style='color: red;'>0%</label>";
 						}else{
-							echo "Procentaj raspunsuri corecte : ".round($raspunsuri_corecte/$raspunsuri*100,2)."%<br>";
+							echo "Procentaj raspunsuri corecte : <label style='color: red;'>".round($raspunsuri_corecte/$raspunsuri*100,2)."%</label><br>";
 						}
+						echo "<br><p>Esti pe locul <label style='color: red;'>".$loc."</label> din <label style='color: red;'>".$nr_copii."</label> de copii.</p>";
 						
 					}else{
 						$e = oci_error($stmt);  // For oci_execute errors pass the statement handle
