@@ -1,3 +1,17 @@
+** proiect_v2.4 **
+    modificari:
+        *profil_copil.php*
+	     creare legaturi in meniul din stanga + adaugare text prima pagina
+	*changepass.php*
+	     am adaugat o variabila in url ?succes
+	*profil_parinte.php*
+             am adaugat o functionalitate ce permite creare de legatura intre tutore si copil
+   am creat urmatoarele fisiere:
+   	*detalii_cont_copil.php*
+	*followers.php*
+	*php/adauga_copil.php*
+	*php/change_name.php*
+	
 ** proiect_v2.3 **
     modificari:
     	*profil_copil.php*
