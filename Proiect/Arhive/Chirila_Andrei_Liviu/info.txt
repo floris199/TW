@@ -2,7 +2,8 @@
     modificari:
         *profil_copil.php*
 	     creare legaturi in meniul din stanga + adaugare text prima pagina
-	*changepass.php*
+	*css/profil_copil.css*
+	*php/changepass.php*
 	     am adaugat o variabila in url ?succes
 	*profil_parinte.php*
              am adaugat o functionalitate ce permite creare de legatura intre tutore si copil
