@@ -85,7 +85,7 @@ if (!$conn)  {
 					header("location: ../profil_parinte.php?succes");
 					exit;
 				}else{
-					header("location: ../profil_copil.php?succes");
+					header("location: ../detalii_cont_copil.php?succes");
 					exit;
 				}
 			}else{
