@@ -44,3 +44,9 @@ PROCEDURE email_newsletter ( v_nume in copii.nume%type, raspunsuri_corecte out n
           CLOSE lista_copii;
          
       END afisare_date_copii;
+      
+      
+      
+  LE LE LE LE
+  
+  -- am modificat tabela COPII si am adaptat scriptul de populare
