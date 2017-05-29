@@ -66,6 +66,31 @@
 					<option value="4">Marcel Pavel</option>
 				</select>
 			</h2>
+		
+			<!-- @@@@@@@@@@@@@@ Liviu @@@@@@@@@@@@@@@ -->
+                <?php
+					echo '<a href="'.$_SERVER['PHP_SELF'].'?adauga_copil">Adauga un nou copil<a/>';
+                    if (isset($_GET['adauga_copil'])){
+						echo '<form method="post" action="php/adauga_copil.php">';
+						echo 'Insereaza cheia : ';
+						if(isset($_COOKIE['key_empty_field']) or isset($_COOKIE['wrong_key'])){
+							echo '<input type="text" id="wrong" name="cheie" placeholder="ex.: HSADSACQWSAFAVSAXSYM" style="width: 250px"/><br>';
+						}else{
+							echo '<input type="text" name="cheie" placeholder="ex.: HSADSACQWSAFAVSAXSYM" style="width: 250px"/><br>';
+						}
+						echo '<input type="submit" value="Adauga" style = "width: 100px; height:10 px; font-size:15px;" />';
+						if(isset($_COOKIE['key_empty_field'])){
+							echo '<p style="color: red">* Campul este obligatoriu</p>';
+						}
+						if(isset($_COOKIE['wrong_key'])){
+							echo '<p style="color: red">** Cheia introdusa este gresita</p>';
+						}
+						echo '</form>';
+                    }
+					if (isset($_GET['succes'])){
+						echo '<p style="font-style: italic; color:green;">Copilul a fost adaugat cu succes</p>';
+					}
+                ?>
 		</div>
 		
 		<div class="footer-div">
