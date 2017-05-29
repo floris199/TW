@@ -1,1 +1,46 @@
+-- Am introdus urmatorele functii
+--(HEAD)
+ procedure email_newsletter ( v_nume in  copii.nume%type, raspunsuri_corecte out number, raspunsuri_gresit out number);
+ -- Care va returna nr-ul de raspunsui corecte, gresite a unui copil
+ 
+ 
+ 
+-- (HEAD)
+ procedure afisare_date_copii (v_id out number, row_num in out number, v_nume_parinte IN tutori.nume%type,v_nume_copil out copii.nume%type, raspunsuri_corecte out number, raspunsuri_gresite out number);
 
+-- Va returna numele, nr-ul de raspunsui corecte, gresite a unui copil
+
+--(BODY)
+PROCEDURE email_newsletter ( v_nume in copii.nume%type, raspunsuri_corecte out number, raspunsuri_gresit out number)
+   AS
+       BEGIN
+        select count(rezolvat) into raspunsuri_corecte from raspunsuri r join copii c on c.id = r.copil_id where c.nume = v_nume and rezolvat=1;
+        select count(rezolvat) into raspunsuri_gresit from raspunsuri r join copii c on c.id = r.copil_id where c.nume = v_nume and rezolvat=0;
+   end email_newsletter;
+   
+   
+   --(BODY)
+    procedure afisare_date_copii (v_id out number, row_num in out number, v_nume_parinte IN tutori.nume%type,v_nume_copil out copii.nume%type, raspunsuri_corecte out number, raspunsuri_gresite out number)
+    AS  
+        CURSOR lista_copii IS select * from copii where id in(select copil_id from legaturi where tutore_id in(select id from tutori where nume = v_nume_parinte));
+         v_std_linie lista_copii%ROWTYPE;
+         
+      BEGIN
+          
+          OPEN lista_copii;
+          LOOP
+              FETCH lista_copii INTO v_std_linie;
+              EXIT WHEN row_num<1;
+              if(row_num = 1) then 
+               -- select c.nume,c.id,rownum into v_nume_copil, v_id from copii c join legaturi l on l.copil_id=c.id join tutori t on t.id=l.tutore_id where t.nume=v_nume_parinte;
+                v_nume_copil := v_std_linie.nume;
+                v_id := v_std_linie.id;
+                raspunsuri_corecte := nr_raspunsuri_corecte(v_id);
+                select count(rezolvat) into raspunsuri_gresite from raspunsuri r join copii c on c.id = r.copil_id where c.id = v_id and rezolvat=0;
+              end if;
+             row_num := row_num - 1;
+                
+          END LOOP;
+          CLOSE lista_copii;
+         
+      END afisare_date_copii;
