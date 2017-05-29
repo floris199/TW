@@ -82,12 +82,10 @@ if (!$conn)  {
 			if(oci_execute($stmt2))
 			{
 				if($_COOKIE['user_type']=="parent"){
-					$succes=1;
-					header("location: ../profil_parinte.php?succes=$succes");
+					header("location: ../profil_parinte.php?succes");
 					exit;
 				}else{
-					$succes=1;
-					header("location: ../profil_copil.php?succes=$succes");
+					header("location: ../profil_copil.php?succes");
 					exit;
 				}
 			}else{
