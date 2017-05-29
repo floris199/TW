@@ -73,8 +73,10 @@
 						Select id into v_id from copii where nume_cont='".$username['user']."';
 						Select user_package.nr_raspunsuri_corecte(v_id) into :raspunsuri_corecte from dual;
 						Select count(*) into :raspunsuri from raspunsuri where copil_id=v_id;
-						select loc into :loc from (
-							select rownum as loc,id, nume from copii order by user_package.nr_raspunsuri_corecte(id) desc
+						select loc from (
+							select rownum as loc,id from (
+							  select id from copii order by user_package.nr_raspunsuri_corecte(id) desc
+							  )
 							) where id=v_id;
 						select count(*) into :nr_copii from copii;
 					END;");
