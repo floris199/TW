@@ -82,7 +82,7 @@ if (!$conn)  {
 			if(oci_execute($stmt2))
 			{
 				if($_COOKIE['user_type']=="parent"){
-					header("location: ../profil_parinte.php?succes");
+					header("location: ../profil_parinte.php?change_pass_succes");
 					exit;
 				}else{
 					header("location: ../detalii_cont_copil.php?succes");
