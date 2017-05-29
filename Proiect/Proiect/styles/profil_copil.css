@@ -5,8 +5,9 @@
 .content{
 	float: right;
 	width: 80%;
-	padding:1px 16px;
+	padding:5% 5%;
 	margin: 0 0 50px 0;
+	
 }
 
 .left-menu{
@@ -75,6 +76,19 @@ input[type=button] {
 	top:0; 
 	margin: 50px 0 0 0;
 }
+
+
+.content input[type=submit] {
+	padding: 2px;
+	height: 30px;
+	width:12%;
+	font-size:12px;
+	margin: 0;
+}
+.content input[type=text] {
+		margin: 0;
+		width:30%;
+	}
 
 
 
