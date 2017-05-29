@@ -22,7 +22,7 @@ PROCEDURE email_newsletter ( v_nume in copii.nume%type, raspunsuri_corecte out n
    --(BODY)
     procedure afisare_date_copii (v_id out number, row_num in out number, v_nume_parinte IN tutori.nume%type,v_nume_copil out copii.nume%type, raspunsuri_corecte out number, raspunsuri_gresite out number)
     AS  
-        CURSOR lista_copii IS select * from copii where id in(select copil_id from legaturi where tutore_id in(select id from tutori where nume = v_nume_parinte));
+        CURSOR lista_copii IS select * from copii where id in(select copil_id from legaturi where tutore_id in(select id from tutori where email = v_nume_parinte));
          v_std_linie lista_copii%ROWTYPE;
          
       BEGIN
