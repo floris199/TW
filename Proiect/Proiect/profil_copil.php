@@ -84,8 +84,8 @@
 						exit; 
 					}
 				}
-            ?>
-			 
+				?>
+				<p>&nbsp &nbsp &nbsp Esti dornic de a invata sau de a-ti testa cunostiintele? Pune-ti mintea la incercare rezolvand testele noastre! Vezi sectiunea <a href="test.php">teste<a>..</p>
 			</div>
             
 
