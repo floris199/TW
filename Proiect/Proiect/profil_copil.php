@@ -47,8 +47,8 @@
 		<div class="main-div">
 			<div class="left-menu">
 				<ul>
-				  <li><a class="active" href="#home">Detalii cont</a></li>
-				  <li><a href="#news">Vezi cine te urmareste</a></li>
+				  <li><a href="detalii_cont_copil.php">Detalii cont</a></li>
+				  <li><a href="followers.php">Vezi cine te urmareste</a></li>
 				  <li><a id="last" href="#news">Alt buton</a></li>
 				  
 				</ul>
