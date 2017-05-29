@@ -38,7 +38,7 @@
 		
 		<div class="menu-bar-div">
 		   <ul>
-			  <li><a class="active" href="child_profile.html">Acasa</a></li>
+			  <li><a class="active" href="profil_copil.php">Acasa</a></li>
 			  <li><a href="test.php">Teste</a></li>
 			  <li><a href="statistici.php">Statistici</a></li>
 			  <li><a href="despre_noi.php" >Despre noi</a></li>
