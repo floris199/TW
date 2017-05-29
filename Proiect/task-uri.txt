@@ -1,20 +1,27 @@
--- gestionare conturi /****** Liviu ******/
+/****** Liviu ******/
+  -- gestionare conturi 
+* login / logout
 * creare cont copil/parinte
 * creare legatura copil-parinte
+* schimbare parola
+* schimbare nume
+  -- modificare profil copil
+* front-end 
 
--- teste /****** Bianca ******/
+/****** Bianca ******/
+-- teste 
 * propune intrebare
 * creare teste
 
--- modificare profil copil (paginile home)  /****** Liviu ******/
-
--- statistici /****** Bianca ******/
+-- statistici 
 * top 10
 * cei mai noi inregistrati
 * cele mai relevante intrebari
 * top 10 copii cu acuratetea cea mai mare
 
--- gestionare copil + modificare profil parinte  /****** Floris ******/
+/****** Floris ******/
+-- gestionare copil + modificare profil parinte  
+
 
 (*) aditional:
 newsfeed ul de sus sa fie dinamic
