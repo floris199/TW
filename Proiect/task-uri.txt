@@ -9,10 +9,14 @@
 * front-end 
 
 /****** Bianca ******/
--- teste 
-* propune intrebare
 * creare teste
-
+- populare_tabele.sql: am repopulat complet baza de date cu date reale
+- creare_functii_v3.sql: am facut functiile necesare pentru statistici
+- test_loged.php: formularul copiilor pentru a alege materia testului in functie de dificultate si materie_id 
+- afisare_test.php: am preluat intrebarile din baza de date in functie de preferintele copilului si am afisat testul respectiv
+- vezi_rezultatul.php: am afisat variantele de raspuns corect si raspunsurile copilului, in functie de ele am calculat punctajul pentru acel test 
+	
+	
 -- statistici 
 * top 10
 * cei mai noi inregistrati
