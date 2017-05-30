@@ -1,38 +1,56 @@
+
 <div class="main-div-test">
+			<form name="register" method="post" action="php/creare_test_copil.php"> 	
 			
 			<img src="images/bafta.png" alt="bafta" style="width:35%; float:right;">
-		    <h1>
-				 Sa incepem! <br>
+		    <h1 style="font-size:130%; ">
+				 <strong>Sa incepem! </strong><br>
 			</h1>
 			
-			<h2 align="left">
-				<b>Cine a scris romanul interbelic "Ion"? </b><br>
-				<input type="checkbox" name="Calinescu" > George Calinescu <br>
-				<input type="checkbox" name="Creanga" > Ion Creanga <br>
-				<input type="checkbox" name="Rebreanu" > Liviu Rebreanu <br><br>
-				
-				<b>Continuati urmatorul vers din poezia "Plumb" de George Bacovia: "Stam singur în cavou… si era …": </b><br>
-				<input type="checkbox" name="vant" > vant <br>
-				<input type="checkbox" name="frig" > frig <br>
-				<input type="checkbox" name="plumb" > plumb <br><br>
-				
-				<b>Care dintre urmatorii autori a scris romanul „Gestapo”? </b><br>
-				<input type="checkbox" name="Erich" > Erich Maria Remarque <br>
-				<input type="checkbox" name="Sven" > Sven Hassel <br>
-				<input type="checkbox" name="Nikolai" > Nikolai Gogol <br><br>
-				
-				<b>Unde s-a nascut Ion Creanga? </b><br>
-				<input type="checkbox" name="Humulesti" > Humulesti <br>
-				<input type="checkbox" name="TgNeamt" > Targu Neamt <br>
-				<input type="checkbox" name="Falticeni" > Falticeni <br><br>
-				
-				<b>Care e personajul principal din romanul "Baltagul" de Mihail Sadoveanu? </b><br>
-				<input type="checkbox" name="Nechifor" > Nechifor Lipan <br>
-				<input type="checkbox" name="Vitoria" > Vitoria Lipan <br>
-				<input type="checkbox" name="Ion" > Ion <br><br>
-			</h2>
-	
-		   
+			<h2 style="font-size:110%; font-family: Tempus Sans ITC;">
 			
-		
+			
+				<b>Pentru inceput, alege un domeniu din cele 5: </b><br>
+				<p><br/>
+				<input type="radio" id="r1" name="materie" value='Matematica' />
+				<label for="r1">Matematica</label>
+				<p>
+				<input type="radio" id="r2" name="materie" value='Geografie'/>
+				<label for="r2">Geografie</label>
+				<p>
+				<input type="radio" id="r3" name="materie" value='Literatura'/>
+				<label for="r3">Literatura</label>
+				<p>
+				<input type="radio" id="r4" name="materie" value='Istorie'/>
+				<label for="r4">Istorie</label>
+				<p>
+				<input type="radio" id="r5" name="materie" value='Muzica'/>
+				<label for="r5">Muzica</label><br><br>
+				
+				<b>Alege gradul de dificultate: </b><br>
+				<p><br/>
+				<input type="radio" id="g1" name="grad" value='prescolari'/>
+				<label for="g1">prescolari</label>
+				<p>
+				<input type="radio" id="g2" name="grad" value='scolari mici'/>
+				<label for="g2">scolari mici</label>
+				<p>
+				<input type="radio" id="g3" name="grad" value='elevi de gimnaziu'/>
+				<label for="g3">elevi de gimnaziu</label>
+				
+				<?php
+				if (isset($_COOKIE['casuta_materie_nebifata'])){
+                        echo "<br>" . '<p style="color: red">  Trebuie sa alegi o materie!<p>';
+                    }
+				if (isset($_COOKIE['casuta_grad_nebifata'])){
+                        echo '<p style="color: red">  Trebuie sa alegi un grad de dificultate!<p><br>';
+                    }
+				?>
+				
+			</h2>
+			
+			<input type="submit" class="register" value="Incepe testul!" />
+			
+			
+		</form>
 		</div>
