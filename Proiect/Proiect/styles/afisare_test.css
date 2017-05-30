@@ -1,0 +1,28 @@
+.test-content  {
+	font-family:Tempus Sans ITC;
+	margin: 5px 0px 50px 0px;
+	float: left;
+	width: 100%;
+	height: auto;
+	
+	overflow: hidden;
+	word-wrap: break-word;
+	word-break: keep-all;
+	border-left: 6px solid #000066;
+    background-color: #ffb3b3;
+	padding: 3px;
+}
+
+.test-content  h3{
+	text-align: center;
+	font-size:140%;
+	color:#000066;
+}
+
+.test-content input{
+	font-family: Tempus Sans ITC;
+    display: block;
+	font-size: 225%;
+	font-weight: normal;
+	color: #000066;
+}
