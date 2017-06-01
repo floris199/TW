@@ -78,7 +78,8 @@
 						$raspuns_corect_intrebare1 = $row[1];
 						setcookie("raspuns_corect_intrebare1", $raspuns_corect_intrebare1, time()+100, '/');
 						$intrebare_id1 = $row[2];
-						//setcookie("id_intrebare1", $id_intrebare1, time()+100, '/');
+						//echo $intrebare_id1;
+						setcookie("id_intrebare1", $intrebare_id1, time()+100, '/');
 						//echo $_COOKIE['id_intrebare1'];
 						
 						$varianta_raspuns_1 = $row[3];
@@ -103,7 +104,7 @@
 						$raspuns_corect_intrebare2 = $row[1];
 						setcookie("raspuns_corect_intrebare2", $raspuns_corect_intrebare2, time()+100, '/');
 						$intrebare_id2 = $row[2];
-						//setcookie("id_intrebare2", $id_intrebare2, time()+100, '/');
+						setcookie("id_intrebare2", $intrebare_id2, time()+100, '/');
 						$varianta_raspuns_1 = $row[3];
 						echo "<input type=\"radio\" id=\"r4\" name=\"intrebare2\" value=\"$varianta_raspuns_1\" />$varianta_raspuns_1"."&nbsp&nbsp&nbsp&nbsp&nbsp";
 						$varianta_raspuns_2 = $row[4];
@@ -125,7 +126,7 @@
 						$raspuns_corect_intrebare3 = $row[1];
 						setcookie("raspuns_corect_intrebare3", $raspuns_corect_intrebare3, time()+100, '/');
 						$intrebare_id3 = $row[2];
-						//setcookie("id_intrebare3", $id_intrebare3, time()+100, '/');
+						setcookie("id_intrebare3", $intrebare_id3, time()+100, '/');
 						$varianta_raspuns_1 = $row[3];
 						echo "<input type=\"radio\" id=\"r7\" name=\"intrebare3\" value=\"$varianta_raspuns_1\" />$varianta_raspuns_1"."&nbsp&nbsp&nbsp&nbsp&nbsp";
 						$varianta_raspuns_2 = $row[4];
@@ -147,7 +148,7 @@
 						$raspuns_corect_intrebare4 = $row[1];
 						setcookie("raspuns_corect_intrebare4", $raspuns_corect_intrebare4, time()+100, '/');
 						$intrebare_id4 = $row[2];
-						//setcookie("id_intrebare4", $id_intrebare4, time()+100, '/');
+						setcookie("id_intrebare4", $intrebare_id4, time()+100, '/');
 						$varianta_raspuns_1 = $row[3];
 						echo "<input type=\"radio\" id=\"r10\" name=\"intrebare4\" value=\"$varianta_raspuns_1\" />$varianta_raspuns_1"."&nbsp&nbsp&nbsp&nbsp&nbsp";
 						$varianta_raspuns_2 = $row[4];
@@ -169,7 +170,7 @@
 						$raspuns_corect_intrebare5 = $row[1];
 						setcookie("raspuns_corect_intrebare5", $raspuns_corect_intrebare5, time()+100, '/');
 						$intrebare_id5 = $row[2];
-						//setcookie("id_intrebare5", $id_intrebare5, time()+100, '/');
+						setcookie("id_intrebare5", $intrebare_id5, time()+100, '/');
 						$varianta_raspuns_1 = $row[3];
 						echo "<input type=\"radio\" id=\"r10\" name=\"intrebare5\" value=\"$varianta_raspuns_1\" />$varianta_raspuns_1"."&nbsp&nbsp&nbsp&nbsp&nbsp";
 						$varianta_raspuns_2 = $row[4];
@@ -177,7 +178,7 @@
 						$varianta_raspuns_3 = $row[5];
 						echo "<input type=\"radio\" id=\"r12\" name=\"intrebare5\" value=\"$varianta_raspuns_3\" />$varianta_raspuns_3"."<br><br>";
 					}
-			
+					
 					
 					if (isset($_COOKIE['intrebare1_nebifata'])) {
 						unset($_COOKIE['intrebare1_nebifata']);
@@ -220,7 +221,7 @@
 						header("location: ../afisare_test.php");
 						
 					}
-							*/	
+						*/	
 			
 			?>
 			
