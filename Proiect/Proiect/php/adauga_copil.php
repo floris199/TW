@@ -1,7 +1,7 @@
 <?php
 
 $cheie = $_POST['cheie'] ?? '';
-echo "Cheia este ".$cheie;
+#echo "Cheia este ".$cheie;
 if($cheie==''){
 	setcookie("key_empty_field", 1, time()+2, '/');
 	header("location: ../profil_parinte.php?adauga_copil");
@@ -34,10 +34,12 @@ if (!$conn)  {
 	}else{
 		$username = $_COOKIE['login'];
 		$stmt = oci_parse($conn,"BEGIN
-				SELECT id INTO :copil FROM copii WHERE CHEIE='$cheie';
+				SELECT id,nume INTO :copil,:nume FROM copii WHERE CHEIE='$cheie';
 		END;");
 		oci_bind_by_name($stmt,":copil",$copil_id,32);
+		oci_bind_by_name($stmt,":nume",$copil_nume,100);
 		oci_execute($stmt);
+		echo $username['user'];
 		$stmt = oci_parse($conn,"BEGIN
 				SELECT id INTO :tutore FROM tutori WHERE email='".$username['user']."';
 		END;");
@@ -52,6 +54,12 @@ if (!$conn)  {
 		}
 		if(oci_execute($stmt2))
 		{
+			$i=1;
+			while (isset($_COOKIE['nume_copil'.$i.'']))
+			{
+				$i++;
+			}
+			setcookie('nume_copil'.$i.'', $copil_nume, time()+60*60*24, '/');
 			header("location: ../profil_parinte.php?succes");
 			exit;
 		}else{
