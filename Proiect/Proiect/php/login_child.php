@@ -1,4 +1,9 @@
 <?php
+
+
+$user = $_POST['user'] ?? '';
+$pass = $_POST['pass'] ?? '';
+
 /* Set oracle user login and password info */
 $dbuser = "proiect";
 $dbpass = "proiect";
@@ -10,11 +15,6 @@ if (!$conn)  {
     trigger_error(htmlentities($e['message']), E_USER_ERROR);
     exit; 
 }
-
-$user = $_POST['user'] ?? '';
-$pass = $_POST['pass'] ?? '';
-
-#verificare username
 
 $login_stmt = oci_parse($conn, "
 							 Begin
@@ -35,7 +35,6 @@ if(!$login_stmt)
 			#echo 'Logged In';
 			setcookie("user_type", "child", time()+60*60*24, '/');
 			setcookie("login[user]", $user, time()+60*60*24, '/');
-			setcookie("login[pass]", $pass, time()+60*60*24, '/');
 			header("location: ../profil_copil.php");
 		}
 		else
@@ -53,6 +52,8 @@ if(!$login_stmt)
         header("location: ../index.php?error=$error");
 	}
 }
+
+
 
 
 ?>
