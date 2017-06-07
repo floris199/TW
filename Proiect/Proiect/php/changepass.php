@@ -1,55 +1,79 @@
 <?php
-/* Set oracle user login and password info */
-$dbuser = "proiect";
-$dbpass = "proiect";
-$dbname = "localhost/xe";
-$conn = oci_connect($dbuser, $dbpass, $dbname);
 
 $current_pass = $_POST['current_pass'] ?? '';
 $pass = $_POST['pass'] ?? '';
 $pass2 = $_POST['pass2'] ?? '';
 
+/* verifica daca sunt completate toate campurile obligatorii */
 if($pass=='' or $pass2=='' or $current_pass==''){
-	/*
-	if(strcmp($pass,'')==0 and strcmp($pass2,'')==0){
-		$error=12;
-		header("location: $_SERVER['PHP_SELF']?error=$parent");
-		exit;
-	}else{*/
-		if($current_pass==''){
-			setcookie("empty_field1", 1, time()+2, '/');
-		}
-		if($pass==''){
-			setcookie("empty_field2", 2, time()+2, '/');
-		}
-		if($pass2==''){
-			setcookie("empty_field3", 3, time()+2, '/');
-		}
-	/*}*/
+	if($current_pass==''){
+		setcookie("empty_field1", 1, time()+2, '/');
+	}
+	if($pass==''){
+		setcookie("empty_field2", 2, time()+2, '/');
+	}
+	if($pass2==''){
+		setcookie("empty_field3", 3, time()+2, '/');
+	}
 	header("location: ../schimbare_parola.php");
 	exit;
-
+	
+/* verifica daca parolele noi corespund */
 }elseif($pass!=$pass2){
 	setcookie("pass_not_matching", 3, time()+2, '/');
 	header("location: ../schimbare_parola.php");
 	exit;
-}elseif($current_pass==$pass){
-	setcookie("old_pass", 1, time()+2, '/');
+
+}elseif(strcmp($current_pass,$pass)==0){
+	setcookie("old_pass", 1, time()+2, '/'); /* parola noua trebuie sa fie diferita de cea veche */
 	header("location: ../schimbare_parola.php");
 	exit;
+}else{
+	#verificare caractere speciale
+	$ok=0;
+	$validation = preg_replace("/[a-zA-Z0-9]/", "", $pass);
+	if($validation != ''){
+		setcookie("caractere_interzise_in_pass1", 1, time()+2, '/');
+		$ok=1;
+	}
+	$validation = preg_replace("/[a-zA-Z0-9]/", "", $pass2);
+	if($validation != ''){
+		setcookie("caractere_interzise_in_pass2", 1, time()+2, '/');
+		$ok=1;
+	}
+	if($ok==1){
+		header("location: ../schimbare_parola.php");
+		exit;
+	}
+	
+	#verificare numar de caractere
+	$ok=0;
+	if(strlen($pass)<6){
+		setcookie("caractere_putine_in_pass", 1, time()+2, '/');
+		$ok=1;
+	}
+	if($ok==1){
+		header("location: ../schimbare_parola.php");
+		exit;
+	}
 }
-
+/* cautare parola specifica username-ului dat */
+$dbuser = "proiect";
+$dbpass = "proiect";
+$dbname = "localhost/xe";
+$conn = oci_connect($dbuser, $dbpass, $dbname);
 if (!$conn)  {
-    $e = oci_error();   // For oci_connect errors do not pass a handle
+    $e = oci_error();   
     trigger_error(htmlentities($e['message']), E_USER_ERROR);
     exit; 
 }else{
+	/* pentru parinte */
 	if($_COOKIE['user_type']=="parent"){
 		$username = $_COOKIE['login'];
 		$stmt = oci_parse($conn, "BEGIN 
 				Select parola into :p from tutori where email='".$username['user']."'; 
 			END;");
-	}else{
+	}else{/* pentru copil */
 		$username = $_COOKIE['login'];
 		$stmt = oci_parse($conn, "BEGIN
 			Select parola into :p from copii where nume_cont='".$username['user']."';
@@ -58,7 +82,7 @@ if (!$conn)  {
 	oci_bind_by_name($stmt,":p",$parola,20);
 	if(!$stmt)
 	{
-		$e = oci_error($conn);  // For oci_parse errors pass the connection handle
+		$e = oci_error($conn);  
 		trigger_error(htmlentities($e['message']), E_USER_ERROR);
 		exit; 
 	}
@@ -75,7 +99,7 @@ if (!$conn)  {
 
 			if(!$stmt2)
 			{
-				$e = oci_error($conn);  // For oci_parse errors pass the connection handle
+				$e = oci_error($conn); 
 				trigger_error(htmlentities($e['message']), E_USER_ERROR);
 				exit; 
 			}
@@ -89,7 +113,7 @@ if (!$conn)  {
 					exit;
 				}
 			}else{
-				$e = oci_error($stmt2);  // For oci_execute errors pass the statement handle
+				$e = oci_error($stmt2);
 				trigger_error(htmlentities($e['message']), E_USER_ERROR);
 				exit; 
 			}
@@ -100,11 +124,10 @@ if (!$conn)  {
 			exit;
 		}
 	}else{
-		$e = oci_error($stmt);  // For oci_execute errors pass the statement handle
+		$e = oci_error($stmt); 
 		trigger_error(htmlentities($e['message']), E_USER_ERROR);
         exit; 
 	}
-	
 	
 }
 
