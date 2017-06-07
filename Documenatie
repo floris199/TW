@@ -2,11 +2,36 @@
 Just for Kids 
 
 
-	Proiectul presupune realizarea unei aplicatii Web care ofera copiilor mijloace de invatare si testare interactiva a cunostintelor generale.
-	Pagina principala a aplicatiei ofera o scurta descriere a acesteia, posibilitatea de logare sau creare a unui cont nou atat pentru copii, cat si pentru parintii sau rudele acestuia. Meniu principal este format din patru campuri, fiecare avand alta functionalitate, depinzand daca este cineva logat sau nu, iar daca este, depinzand de tipul acestuia: copil sau tutore.  Doar ultimul camp, "Despre noi", ofera informatiile de contact ale site-ului indiferent daca este cineva logat sau nu.
-	Atunci cand nu avem niciun utilizator logat, primul camp, de la stanga la dreapta, reprezinta pagina "Acasa" unde se afla detalii despre acest mediu de dezvoltare a abilitatilor cognitive.  Urmatoarele doua campuri, "Teste", respectiv "Statistici", ofera informatii despre faptul ca trebuie sa te loghezi pentru a putea accesa continutul acestora si link-uri catre pagina principala unde gasim, in partea dreapta, doua chenare reprezentative pentru fiecare categorie de utilizator. Fiecare chenar in parte ofera posibilitatea de logare, dar si de creare a unui cont cont. Formularele de inregistrare asigura faptul ca sunt completate corect toate campurile, ca nu este lasat niciunul gol, alfel, se vor semnala erori.
-	Cand un copil s-a logat, acesta are posibilitatea, in pagina "Acasa", de a vedea diverse detalii legate de contul lui. Va putea sa isi schimbe numele sau parola, isi va vedea codul identificator si ce persoane il urmaresc. Codul identificator este unul generat random.  Atunci cand una sau mai multe persoane doresc sa adauge un copil pentru a-i urmari activitatea, li se solicita acest cod. In felul acesta, copilul va sti cine il urmareste si nu vor exista situatii in care va fi urmarit de o persoana necunoscuta. Cel de-al doilea camp din meniu este "Teste". Copilul va trebui sa aleaga una din materiile matematica, geografie, literatura, istorie si muzica si un grad de dificultate: prescolari, scolari mici sau elevi de gimnaziu. Este necesar sa se bifeze cate un camp din ambele categorii, altfel nu va putea incepe testul. In functie de preferintele acestuia se va genera un test format din cinci intrebari, fiecare intrebare avand trei variante de raspuns. La fel ca si mai sus, este necesar sa raspunda la toate intrebarile pentru a merge mai departe. Dupa ce a terminat de raspuns, va fi directionat catre o pagina in care isi va putea vedea rezultatele. Aici vor fi afisate atat variantele pe care el le-a ales, cat si pe cele corecte ale intrebarii respective, numarul total de intrebari  la care a raspuns corect, iar pentru intrebarile gresite, link-uri catre pagini web de unde se pot documenta pentru a vedea unde au gresit, dar si pentru a invata mai multe despre domeniul respectiv. Urmatorul camp din  meniu, "Statistici", afiseaza detalii legate de intrebarile la care a raspuns copilul, dar si de performanta celorlalti copii. In josul paginii sunt link-uri cu pagini pentru fiecare din cele cinci domenii de pe care ar putea invata mai multe.
-	Dupa ce parintele s-a logat, acesta poate alege copilul ale carui informatii doreste sa le vada si va introduce adresa de e-mail pentru a-i fi trimise. Daca acesta nu are inca un copil adaugat, el poate face acest lucru, insa are nevoia de cheia copilului.
+	Proiectul presupune realizarea unei aplicatii Web care ofera copiilor mijloace de invatare si testare interactiva a cunostintelor
+	generale.
+	Pagina principala a aplicatiei ofera o scurta descriere a acesteia, posibilitatea de logare sau creare a unui cont nou atat 
+	pentru copii, cat si pentru parintii sau rudele acestuia. Meniu principal este format din patru campuri, fiecare avand alta
+	functionalitate, depinzand daca este cineva logat sau nu, iar daca este, depinzand de tipul acestuia: copil sau tutore.  Doar 
+	ultimul camp, "Despre noi", ofera informatiile de contact ale site-ului indiferent daca este cineva logat sau nu.
+	Atunci cand nu avem niciun utilizator logat, primul camp, de la stanga la dreapta, reprezinta pagina "Acasa" unde se afla 
+	detalii despre acest mediu de dezvoltare a abilitatilor cognitive.  Urmatoarele doua campuri, "Teste", respectiv "Statistici", 
+	ofera informatii despre faptul ca trebuie sa te loghezi pentru a putea accesa continutul acestora si link-uri catre pagina 
+	principala unde gasim, in partea dreapta, doua chenare reprezentative pentru fiecare categorie de utilizator. Fiecare chenar in
+	parte ofera posibilitatea de logare, dar si de creare a unui cont cont. Formularele de inregistrare asigura faptul ca sunt
+	completate corect toate campurile, ca nu este lasat niciunul gol, alfel, se vor semnala erori.
+	Cand un copil s-a logat, acesta are posibilitatea, in pagina "Acasa", de a vedea diverse detalii legate de contul lui. Va
+	putea sa isi schimbe numele sau parola, isi va vedea codul identificator si ce persoane il urmaresc. Codul identificator
+	este unul generat random.  Atunci cand una sau mai multe persoane doresc sa adauge un copil pentru a-i urmari activitatea,
+	li se solicita acest cod. In felul acesta, copilul va sti cine il urmareste si nu vor exista situatii in care va fi urmarit
+	de o persoana necunoscuta. Cel de-al doilea camp din meniu este "Teste". Copilul va trebui sa aleaga una din materiile 
+	matematica, geografie, literatura, istorie si muzica si un grad de dificultate: prescolari, scolari mici sau elevi de gimnaziu. 
+	Este necesar sa se bifeze cate un camp din ambele categorii, altfel nu va putea incepe testul. In functie de preferintele 
+	acestuia se va genera un test format din cinci intrebari, fiecare intrebare avand trei variante de raspuns. La fel ca si 
+	mai sus, este necesar sa raspunda la toate intrebarile pentru a merge mai departe. Dupa ce a terminat de raspuns, va fi
+	directionat catre o pagina in care isi va putea vedea rezultatele. Aici vor fi afisate atat variantele pe care el le-a ales, 
+	cat si pe cele corecte ale intrebarii respective, numarul total de intrebari  la care a raspuns corect, iar pentru intrebarile
+	gresite, link-uri catre pagini web de unde se pot documenta pentru a vedea unde au gresit, dar si pentru a invata mai multe 
+	despre domeniul respectiv. Urmatorul camp din  meniu, "Statistici", afiseaza detalii legate de intrebarile la care a raspuns
+	copilul, dar si de performanta celorlalti copii. In josul paginii sunt link-uri cu pagini pentru fiecare din cele cinci domenii
+	de pe care ar putea invata mai multe.
+	Dupa ce parintele s-a logat, acesta poate alege copilul ale carui informatii doreste sa le vada si va introduce adresa de e-mail
+	pentru a-i fi trimise. Daca acesta nu are inca un copil adaugat, el poate face acest lucru, insa are nevoia de cheia copilului.
 
 .. voi continua
+Stiu ca se vede aiurea asezarea in pagina, s a modificat
 
