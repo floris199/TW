@@ -59,7 +59,7 @@
                 
                 echo '<strong>Parola noua:</strong><br>';
                 
-                    if (!isset($_COOKIE['empty_field2']) and !isset($_COOKIE['pass_not_matching'])){
+                    if (!isset($_COOKIE['empty_field2']) and !isset($_COOKIE['pass_not_matching']) and !isset($_COOKIE['caractere_interzise_in_pass1']) and !isset($_COOKIE['caractere_putine_in_pass'])){
                         echo '<input type="password" name="pass" /><br>';
                     }else{
                         echo '<input type="password" name="pass" id="wrong"/><br>';
@@ -68,7 +68,7 @@
 
                 echo '<strong>Reintroduceti parola noua:</strong><br>';            
                 
-                    if (!isset($_COOKIE['empty_field3']) and !isset($_COOKIE['pass_not_matching'])){
+                    if (!isset($_COOKIE['empty_field3']) and !isset($_COOKIE['pass_not_matching']) and !isset($_COOKIE['caractere_interzise_in_pass2'])){
                         echo '<input type="password" name="pass2" /><br>';
                     }else{
 						echo '<input type="password" name="pass2" id="wrong"/><br>';
@@ -86,6 +86,16 @@
 					}
 					if(isset($_COOKIE['old_pass'])){
 						echo '<p style="color: red"> **** Parola noua trebuie sa fie diferita de cea veche<p><br>';
+					}
+					if(isset($_COOKIE['caractere_interzise_in_pass1']) or isset($_COOKIE['caractere_interzise_in_pass2'])){
+						echo '<p style="color: red"> **** Ai folosit caractere interzise! <p><br>'; 
+						echo '<p style="color: red"> Caractere valide: <p>';
+						echo '<p style="color: red; font-size: 70%;"> Litere mari si mici din alfabetul englez si/sau cifre <p>';
+					}
+					if(isset($_COOKIE['caractere_putine_in_pass'])){
+						echo '<p style="color: red"> **** Numar mic de caractere <p><br>';
+						echo '<p style="color: red"> Numarul de caractere trebuie sa fie minim: <p>';
+						echo '<p style="color: red; font-size: 70%;"> 6 - pentru parola <p>';						
 					}
                 ?>
                 
