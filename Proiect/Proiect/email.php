@@ -65,7 +65,7 @@ $mail->Username = "justforkidsnewsletter@gmail.com";
 $mail->Password = "budake23";
 $mail->SetFrom("justforkidsnewsletter@gmail.com");
 $mail->Subject = "Newsletter JFK";
-$mail->Body = "hello copilul dumneavoastra are {$r_c} raspunsuri corecte si {$r_g} raspunsuri gresite";
+$mail->Body = "Buna ziua! ".$username."  are {$r_c} raspunsuri corecte si {$r_g} raspunsuri gresite!";
 $mail->AddAddress($email);
 $mail->Send();
 

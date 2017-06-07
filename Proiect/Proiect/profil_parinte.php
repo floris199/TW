@@ -57,14 +57,16 @@
 			</h1>
 			
 
-			<h3>    Daca doriti ca datele copilului dumneavoastra sa va fie transmise prin e-mail, va rugam sa completati formularul de mai jos!</h3>
 			
-		        <form method="post" action="email.php">
-				Numele copilului:<br>
+			
+		        
                 <?php
-					
+					if(isset($_COOKIE['nume_copil1'])){
+						echo '<h3>    Daca doriti ca datele copilului dumneavoastra sa va fie transmise prin e-mail, va rugam sa completati formularul de mai jos!</h3>';
+						echo '<form method="post" action="email.php">';
+						echo 'Numele copilului:<br>';
                     	$i = 1;
-						echo '<select name = "pick" >';
+						echo '<select name = "pick" class="styled-select" >';
 						while(isset($_COOKIE['nume_copil'.$i.''])) {
 							echo '<option value="'.$_COOKIE['nume_copil'.$i.''].'">'.$_COOKIE['nume_copil'.$i.''].'</option>';
 							$i++;
@@ -86,12 +88,14 @@
 
 							echo '<p style="color: red"> ** Emailul este invalid<p><br>';
 						}
-				  }
+					}
+					echo ' <input type="submit" value="Submit" style = "width: 100px; height:10 px; font-size:15px;" />';
+					echo '</form>';
+					}
+				  else
+					  echo 'Ne pare rau, dar in baza noastra de date nu apare nici un copil sub custodia dumneavoastra!';
                     
                 ?>
-				  
-				  <input type="submit" value="Submit" style = "width: 100px; height:10 px; font-size:15px;" />
-				</form>
 				
 				<!-- @@@@@@@@@@@@@@ ATAT AM ADAUGAT. PUPICI @@@@@@@@@@@@@@@ -->
                 <?php
@@ -117,6 +121,7 @@
 						echo '<p style="font-style: italic; color:green;">Copilul a fost adaugat cu succes</p>';
 					}
                 ?>
+				
 		</div>
 		
 		<div class="footer-div">

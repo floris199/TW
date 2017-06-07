@@ -125,7 +125,7 @@
 				<input type="submit" value="Submit" style = "width: 100px; height:10 px; font-size:15px;" />
 			</form>
 			
-			
+		</div>
 		<div class="footer-div">
 		   <p>Autori: Andrei-Liviu Chirila, Ababei Bianca-Georgiana, Corduneanu Florian-Mihai</p>
 		</div>

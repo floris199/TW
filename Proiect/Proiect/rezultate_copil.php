@@ -8,7 +8,7 @@
 	<meta name="JFK" content="Teste de cultura generala pentru copii.">
 	<link rel="stylesheet" href="styles/main.css">
 	<link rel="stylesheet" href="styles/tabel_rezultate.css">
-	<link rel="stylesheet" href="styles/rezultate_copil.css">
+	<link rel="stylesheet" href="styles/parinte.css">
 
 	<?php
     if (!isset($_COOKIE['login'])) {
@@ -65,7 +65,9 @@
 					if (!isset($_COOKIE['user_type'])) {
 						print 'User type is not set';
 					}
-					else{$dbuser = "proiect";
+					else{
+						 if(isset($_COOKIE['nume_copil1'])){
+						 $dbuser = "proiect";
 						 $dbpass = "proiect";
 						 $dbname = "localhost/xe";
 						 $db = oci_connect($dbuser, $dbpass, $dbname);
@@ -141,17 +143,8 @@
 						}
 			
 			echo '</table>';
-			
-				}
-			}
-					
-				
-			?>
-			
-		<h3>Daca doriti sa sa vizualizati intrebarile la care copilul dumneavoastra a raspuns, va rugam sa completati formularul de mai jos:</h3>
-		<form method="post" action="intrebari.php">
-		
-		<?php
+			echo '<h3>Daca doriti sa sa vizualizati intrebarile la care copilul dumneavoastra a raspuns, va rugam sa completati formularul de mai jos:</h3>';
+			echo '<form method="post" action="intrebari.php">';
 			$i = 1;
 			echo '<select name = "pick" >';
 			while(isset($_COOKIE['nume_copil'.$i.''])) {
@@ -159,8 +152,14 @@
 					$i++;
 			} 
 			echo '</select>';
-		?>
-		<input type="submit" value="Submit" style = "width: 100px; height:10 px; font-size:15px;" />
+			echo '<input type="submit" value="Submit" style = "width: 100px; height:10 px; font-size:15px;" />';
+						 }
+				else echo 'Ne pare rau, dar nu aveti nici un copil inscris!';
+				}
+			}
+					
+				
+			?>
 		</form>
 		</div>
 		
