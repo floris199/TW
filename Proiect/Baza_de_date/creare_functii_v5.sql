@@ -19,11 +19,36 @@ CREATE OR REPLACE PACKAGE user_package IS
       function get_id_materie(p_nume_materie materii.nume%type, p_dificultate_materie materii.dificultate%type) return number;
       function get_nume_test(p_id_test teste.nume%type) return varchar2;
       function selectare_test (p_materie_id materii.id%type) return number;
+      function inserare_raspuns_intrebare (p_raspuns_copil intrebari.raspuns%type, p_id_intrebare raspunsuri.intrebare_id%type, p_copil_id raspunsuri.copil_id%type, p_raspuns_ales raspunsuri.raspuns%type) return number;
 
 END user_package;
 /
 CREATE OR REPLACE PACKAGE BODY user_package IS
+    
+    function inserare_raspuns_intrebare (p_raspuns_copil intrebari.raspuns%type, p_id_intrebare raspunsuri.intrebare_id%type, p_copil_id raspunsuri.copil_id%type, p_raspuns_ales raspunsuri.raspuns%type) 
+    return  number as
+        count_iduri number; 
+        v_return number;
+       v_raspuns_dat raspunsuri.raspuns%type;
+         v_raspuns_corect raspunsuri.raspuns%type;
+         rezultat number(32);
+    begin
+       select count(*)+1 into count_iduri from raspunsuri;
+       
+       select raspuns into v_raspuns_corect from intrebari where id = p_id_intrebare;
+          if(p_raspuns_copil = v_raspuns_corect) then
+              rezultat:= 1;
+          else
+              rezultat:= 0;
+          end if;
+       insert into raspunsuri (id, intrebare_id, copil_id, raspuns, rezolvat) values
+							(count_iduri, p_id_intrebare, p_copil_id, p_raspuns_ales, rezultat);
+       v_return := 1;
+       return v_return;
+    end inserare_raspuns_intrebare;
+  
 
+    
     FUNCTION login_child (p_nume_cont copii.nume_cont%Type) 
       RETURN copii.parola%TYPE AS
            v_parola copii.parola%Type;
