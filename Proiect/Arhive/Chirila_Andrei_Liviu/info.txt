@@ -8,6 +8,7 @@
 		4. creare_cont_parinte
 		5. formular creare cont parinte
 		6. schimbare_parola.php
+		7. chagepass.php
 		
 ** proiect_v2.4 **
     modificari:
