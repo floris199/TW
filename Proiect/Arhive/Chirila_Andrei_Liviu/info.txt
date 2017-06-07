@@ -1,6 +1,15 @@
 +statistica_copil.php
 
 ** proiect_v2.4 **
+	modificari: RESTRICTIA CARACTERELOR DIN USERNAME SI PAROLA + LUNGIMEA ACESTORA + STERGERE COOKIURI PAROLA
+		1. stergere cookie parola; //login_child.php login_parinte.php
+		2. creare_cont_copil
+		3. formular creare cont copil
+		4. creare_cont_parinte
+		5. formular creare cont parinte
+		6. schimbare_parola.php
+		
+** proiect_v2.4 **
     modificari:
         *profil_copil.php*
 	     creare legaturi in meniul din stanga + adaugare text prima pagina
