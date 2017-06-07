@@ -35,7 +35,6 @@ if(!$login_stmt)
 			#echo 'Logged In';
 			setcookie("user_type", "parent", time()+60*60*24, '/');
 			setcookie("login[user]", $user, time()+60*60*24, '/');
-			setcookie("login[pass]", $pass, time()+60*60*24, '/');
 			$stmt = oci_parse($conn, "declare
 											v_rand number(32);
 											v_id number(32);
