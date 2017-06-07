@@ -1,15 +1,4 @@
 <?php
-/* Set oracle user login and password info */
-$dbuser = "proiect";
-$dbpass = "proiect";
-$dbname = "localhost/xe";
-$conn = oci_connect($dbuser, $dbpass, $dbname);
-
-if (!$conn)  {
-    $e = oci_error();   // For oci_connect errors do not pass a handle
-    trigger_error(htmlentities($e['message']), E_USER_ERROR);
-    exit; 
-}
 
 $user = $_POST['username'] ?? '';
 $pass = $_POST['pass'] ?? '';
@@ -37,12 +26,71 @@ if($pass=='' or $name=='' or $pass2=='' or $user==''){
     $parent=1;
     header("location: ../creare_cont.php?parent=$parent");
 }else{
+	#verificare caractere speciale
+	$ok=0;
+	$validation = preg_replace("/[a-zA-Z -]/", "", $name);
+	if($validation != ''){
+		setcookie("caractere_interzise_in_nume", 1, time()+2, '/');
+		$ok=1;
+	}
+	$validation = preg_replace("/[a-zA-Z0-9]/", "", $user);
+	if($validation != ''){
+		setcookie("caractere_interzise_in_username", 1, time()+2, '/');
+		$ok=1;
+	}
+	$validation = preg_replace("/[a-zA-Z0-9]/", "", $pass);
+	if($validation != ''){
+		setcookie("caractere_interzise_in_pass1", 1, time()+2, '/');
+		$ok=1;
+	}
+	$validation = preg_replace("/[a-zA-Z0-9]/", "", $pass2);
+	if($validation != ''){
+		setcookie("caractere_interzise_in_pass2", 1, time()+2, '/');
+		$ok=1;
+	}
+	if($ok==1){
+		$parent=1;
+		header("location: ../creare_cont.php?parent=$parent");
+		exit;
+	}
+	
+	#verificare numar de caractere
+	$ok=0;
+	if(strlen($user)<4){
+		setcookie("caractere_putine_in_user", 1, time()+2, '/');
+		$ok=1;
+	}
+	if(strlen($pass)<6){
+		setcookie("caractere_putine_in_pass", 1, time()+2, '/');
+		$ok=1;
+	}
+	if($ok==1){
+		$parent=1;
+		header("location: ../creare_cont.php?parent=$parent");
+		exit;
+	}
+	
+	#verificare compatibilitate parole
     if(strcmp($pass,$pass2)!=0){
         setcookie("pass_not_matching", 2, time()+2, '/');
         $parent=1;
 		header("location: ../creare_cont.php?parent=$parent");
 		exit;
     }
+	
+	/* Stabilirea conexiunii cu baza de date */
+	$dbuser = "proiect";
+	$dbpass = "proiect";
+	$dbname = "localhost/xe";
+	$conn = oci_connect($dbuser, $dbpass, $dbname);
+
+	if (!$conn)  {
+		$e = oci_error();
+		trigger_error(htmlentities($e['message']), E_USER_ERROR);
+		exit; 
+	}
+	
+	/* cautare parola specifica username-ului dat */
 	$verif_user_stmt = oci_parse($conn, "
 								 Begin
 									:result := user_package.create_child_account('".$name."','".$pass."','".$user."');
@@ -50,7 +98,7 @@ if($pass=='' or $name=='' or $pass2=='' or $user==''){
 	oci_bind_by_name($verif_user_stmt,":result",$result,20);
 	if(!$verif_user_stmt)
 	{
-		$e = oci_error($conn);  // For oci_parse errors pass the connection handle
+		$e = oci_error($conn);
 		trigger_error(htmlentities($e['message']), E_USER_ERROR);
 		exit; 
 	}
@@ -61,7 +109,6 @@ if($pass=='' or $name=='' or $pass2=='' or $user==''){
 			#echo 'CONT CREAT CU SUCCES';
 			setcookie("user_type", "child", time()+60*60*24, '/');
 			setcookie("login[user]", $user, time()+60*60*24, '/');
-			setcookie("login[pass]", $pass, time()+60*60*24, '/');
 			header("location: ../profil_copil.php");
 		}
 		else
@@ -72,7 +119,7 @@ if($pass=='' or $name=='' or $pass2=='' or $user==''){
             header("location: ../creare_cont.php?parent=$parent");
 		}
 	}else{
-		$e = oci_error($verif_user_stmt);  // For oci_execute errors pass the statement handle
+		$e = oci_error($verif_user_stmt);
 		trigger_error(htmlentities($e['message']), E_USER_ERROR);
         exit; 
 	}
