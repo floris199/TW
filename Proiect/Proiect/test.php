@@ -47,7 +47,7 @@
 		<div class="menu-bar-div">
 		   <ul>
 			  <li><a href="index.php">Acasa</a></li>
-			  <li><a class="active" href="#nothing">Teste</a></li>
+			  <li><a class="active" href="test.php">Teste</a></li>
 			  <li><a href="statistici.php">Statistici</a></li>
 			  <li><a href="despre_noi.php" >Despre noi</a></li>
 			</ul>
