@@ -56,10 +56,10 @@ if(@oci_execute($verif_user_stmt))
 			//returnez id-ul unui test folosind id-ul materiei
 			$verif_user_stmt2 = oci_parse($conn, "
 								 Begin
-									:result2 := user_package.selectare_test('".$result."');
+									:result2 := user_package.selectare_test(".$result.");
 								 End;");
 			oci_bind_by_name($verif_user_stmt2,":result2",$result2);
-			if(!$verif_user_stmt)
+			if(!$verif_user_stmt2)
 			{
 				$e = oci_error($conn);  // For oci_parse errors pass the connection handle
 				trigger_error(htmlentities($e['message']), E_USER_ERROR);
@@ -71,7 +71,7 @@ if(@oci_execute($verif_user_stmt))
 									:result3 := user_package.get_nume_test('".$result2."');
 								 End;");
 			oci_bind_by_name($verif_user_stmt3,":result3",$result3, 30);
-			if(!$verif_user_stmt)
+			if(!$verif_user_stmt3)
 			{
 				$e = oci_error($conn);  // For oci_parse errors pass the connection handle
 				trigger_error(htmlentities($e['message']), E_USER_ERROR);
